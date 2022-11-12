@@ -37,7 +37,7 @@ CREATE TABLE `region` (
 	`regionID` INT NOT NULL AUTO_INCREMENT,
 	`regionName` TEXT(100) NOT NULL,
 	`providerID` INT NOT NULL,
-	`planID` INT NOT NULL,
+	`planID` INT,
 	PRIMARY KEY (`regionID`)
 );
 
