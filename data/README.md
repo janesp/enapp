@@ -16,4 +16,4 @@ Building information is loaded from the [official building address register](htt
 
 Unavailability plans are made available frequently by energy **providers** for the **regions** for which they are responsibile.
 
-The data is uploaded in denormalized form based on a [availability report template](enapp-availabilityreport-tempalte.xlsx), where every line item represents one specific unavailability period.
+The data is uploaded in denormalized form based on a [availability report template](enapp-availabilityreport-template.xlsx), where every line item represents one specific unavailability period.

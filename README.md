@@ -21,7 +21,7 @@ Availability data is specified in detail in the [ENAPP schema](schema/README.md)
 
 Actual data is taken from various sources, as specified in the [data delivery section](data/README.md):
 
-- Providers - from official register
-- Regions - by energy providers (upfront)
-- Buildings - from offical register
-- Unavailability plans - by energy providers (frequently)
+- **Providers** - from official register
+- **Regions** - by energy providers (upfront)
+- **Buildings** - from offical register
+- **Unavailability plans** - by energy providers (frequently)
