@@ -2,7 +2,7 @@
 
 The ENAPP schema specifies the data elements (structure, not content), which are required for energy availability reporting and communication. The [ENAPP schema](enapp-schema.pdf) is specified in entity-relationship notation.
 
-## Static Information
+## Static Information
 
 **Provider**, **region** and **building** data changes rarely during availability reporting phases. This data is collected before reporting phases start.
 
@@ -12,7 +12,7 @@ A provider of energy in any form, as specified by `Type`. Providers of electrica
 
 A provider has an internal `ID` and a `Name`.
 
-An `Identifier` is used as a reference to the official provider register.
+An `Identifier` is used as a reference to the official energy provider register.
 
 ```
 CREATE TABLE `provider` (
@@ -26,7 +26,7 @@ CREATE TABLE `provider` (
 
 ### Region
 
-A region is a service area as defined by the responsible provider. A region can be independently turned off and on (such as a transformer service area). A region provides energy to a number of **buildings**.
+A region is a service area as defined by the responsible energy provider. A region can be independently turned off and on (such as a transformer service area). A region provides energy to a number of **buildings**.
 
 A region is owned by a **provider** and has an internal `ID` and a `Name`.
 
@@ -48,7 +48,7 @@ ALTER TABLE `region` ADD CONSTRAINT `region_fk1` FOREIGN KEY (`planID`) REFERENC
 
 ### Building
 
-A building is an object within the service area of a region.
+A building is an object within the service area of a **region**.
 
 A building has an internal `ID` and a `Name`.
 
@@ -73,11 +73,11 @@ ALTER TABLE `building` ADD CONSTRAINT `building_fk0` FOREIGN KEY (`regionID`) RE
 
 ## Semi Dynamic Information
 
-Person related data changes more frequently than **regions** and **buildungs** throgh registrations with the platform and for specific building addresses.
+Person related data changes more frequently than **regions** and **buildungs** through registrations with the platform and for specific building addresses.
 
 ### Person
 
-An ndividual who is reliablay registered with the platform. This individual can obtain energy availability information for a building addresses.
+An individual who is reliably registered with the platform. The individual can obtain energy availability information for a **building** addresses.
 
 A person has an internal `ID`, a `firstName`, a `lastName` and a `phoneMobile`. A registered person is identified through its mobile number.
 
@@ -94,7 +94,7 @@ CREATE TABLE `person` (
 
 ### Person/Building
 
-A registration of a specific person for a specific building address.
+A registration of a specific **person** for a specific **building** address.
 
 ```
 CREATE TABLE `personBuilding` (
@@ -109,13 +109,13 @@ ALTER TABLE `personBuilding` ADD CONSTRAINT `personBuilding_fk0` FOREIGN KEY (`p
 ALTER TABLE `personBuilding` ADD CONSTRAINT `personBuilding_fk1` FOREIGN KEY (`buildingID`) REFERENCES `building`(`buildingID`);
 ```
 
-## Dynamic Information
+## Dynamic Information
 
 Unavailability data changes frequently during the reporting phase.
 
 ### Unavaliability Plan
 
-An unavailability plan is defined by the responsible provider and specifies periods with off and on dates and times. An availability plan can be referenced by multiple regions.
+An unavailability plan is defined by the responsible **provider** and specifies periods with off and on dates and times. An availability plan can be referenced by multiple **regions**.
 
 A unavailability plan has an internal `ID` and a `Name`.
 
@@ -130,9 +130,9 @@ CREATE TABLE `unavailabilityPlan` (
 ALTER TABLE `unavailabilityPlan` ADD CONSTRAINT `unavailabilityPlan_fk0` FOREIGN KEY (`providerID`) REFERENCES `provider`(`providerID`);
 ```
 
-### Unavailability Period
+### Unavailability Period
 
-An unavailability period defines a specific `Statt` and `End` date and time with in a given plan.
+An unavailability period defines a specific `Start` and `End` date and time with in a given plan.
 
 ```
 CREATE TABLE `unavailabilityPeriod` (
