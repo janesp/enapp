@@ -15,6 +15,6 @@ Communitcating energy availability to affected stakeholders is based on a few da
 - **Availability plans** - these plans are defined by providers and specify periods with off and on dates and times. Availability plans are applied to regions. Availability plans are periodically reported by providers to the platform for coordinated communicaion to stakeholders.
 - **Persons** - individuals who are reliablay registered with the platform. For security reasons, these individuals are entitled to obtain energy availability information for a limited number of building addresses (typically their home address and those of a few relatives).
 
-Availability data is specified in detail in the [ENAPP schema](schema/enapp-schema.pdf).
+Availability data is specified in detail in the [ENAPP schema](schema/README.md).
 
 
